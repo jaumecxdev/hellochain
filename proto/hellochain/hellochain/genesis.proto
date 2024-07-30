@@ -1,0 +1,17 @@
+syntax = "proto3";
+package hellochain.hellochain;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "hellochain/hellochain/params.proto";
+
+option go_package = "hellochain/x/hellochain/types";
+
+// GenesisState defines the hellochain module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
